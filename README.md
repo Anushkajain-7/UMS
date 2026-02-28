@@ -1,7 +1,7 @@
-# Futurense University Management System (UMS)
+# University Management System (UMS)
  
  ## Project Overview
- The Futurense University Management System (UMS) is a premium, full-stack application designed for seamless academic management. It provides a clean, professional interface for students to manage their academic journey, track financial records, and communicate securely with faculty.
+ University Management System (UMS) is a premium, full-stack application designed for seamless academic management. It provides a clean, professional interface for students to manage their academic journey, track financial records, and communicate securely with faculty.
  
  ## Key Features
  - **Secure Authentication**: Robust Sign In and Sign Up system with JWT-based session management.
@@ -50,3 +50,4 @@
  - `/backend`: Server logic and database initialization.
  - `/public`: Frontend assets (HTML, CSS, JS).
  - `/ums.db`: SQLite database file (generated on first run).
+
