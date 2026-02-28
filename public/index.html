@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futurense University | Student Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Global Loader -->
+    <div id="globalLoader">
+        <div class="loader-spinner"></div>
+        <p style="color: var(--accent-gold); letter-spacing: 0.2em; font-size: 0.7rem; text-transform: uppercase;">
+            Initializing Secure Session</p>
+    </div>
+
+    <div class="app-wrapper">
+
+        <!-- Sidebar Navigation -->
+        <aside class="left-sidebar">
+            <div class="sidebar-logo" id="sidebarLogo" style="cursor: pointer;">
+
+                <h4
+                    style="color: var(--accent-gold); font-size: 0.9rem; margin-top: 10px; font-family: 'Playfair Display', serif;">
+                    Futurense University</h4>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="sidebar-link active" data-target="dashboard">
+                    <i class="fas fa-th-large"></i> <span>Dashboard</span>
+                </a>
+                <a href="#" class="sidebar-link" data-target="academics">
+                    <i class="fas fa-book-open"></i> <span>Academics</span>
+                </a>
+                <a href="#" class="sidebar-link" data-target="exams">
+                    <i class="fas fa-file-signature"></i> <span>Examinations</span>
+                </a>
+                <a href="#" class="sidebar-link" data-target="assignments">
+                    <i class="fas fa-tasks"></i> <span>Assignments</span>
+                </a>
+                <a href="#" class="sidebar-link" data-target="finance">
+                    <i class="fas fa-wallet"></i> <span>Fees & Finance</span>
+                </a>
+                <a href="#" class="sidebar-link" data-target="communication">
+                    <i class="fas fa-comments"></i> <span>Communication</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Top Header -->
+        <header class="main-header">
+            <div class="module-title">
+                <h2 id="currentModuleTitle">Student Portal</h2>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <div class="user-profile" id="userProfileHeader" style="cursor: pointer;">
+                    <div style="text-align: right; margin-right: 15px;">
+                        <p id="navUserName" style="font-size: 0.85rem; font-weight: 600;">John Doe</p>
+                        <p style="font-size: 0.65rem; color: var(--text-secondary);">B.Tech CSE - 4th Year</p>
+                    </div>
+                </div>
+                <button id="signOutBtn"
+                    style="background: none; border: 1px solid var(--border-color); color: var(--text-secondary); padding: 8px 15px; border-radius: 4px; font-size: 0.75rem; cursor: pointer; transition: 0.3s;"
+                    onmouseover="this.style.borderColor= 'var(--accent-gold)'; this.style.color='var(--accent-gold)'"
+                    onmouseout="this.style.borderColor='var(--border-color)'; this.style.color='var(--text-secondary)'">
+                    <i class="fas fa-sign-out-alt"></i> Sign Out
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+
+            <!-- DASHBOARD SECTION -->
+            <div id="dashboard" class="page-section active">
+
+                <!-- Premium Hero Banner -->
+                <div class="hero-banner">
+                    <div class="hero-track" id="heroTrack">
+                        <div class="hero-slide active" style="background-color: var(--hover-bg);">
+                            <div class="hero-content">
+                                <span class="hero-badge">Global Recognition</span>
+                                <h2>Ranked #1 for Engineering Excellence.</h2>
+                                <p>Discover why Futurense University consistently leads in academic research and
+                                    innovation across the continent.</p>
+                                <button class="btn-gold">Read Full Report</button>
+                            </div>
+                        </div>
+                        <div class="hero-slide" style="background-color: var(--hover-bg);">
+                            <div class="hero-content">
+                                <span class="hero-badge">Campus Infrastructure</span>
+                                <h2>New Computing Hub Now Open.</h2>
+                                <p>Experience state-of-the-art facilities designed for post-graduate research and
+                                    advanced software development.</p>
+                                <button class="btn-gold">Explore Hub</button>
+                            </div>
+                        </div>
+                        <div class="hero-slide" style="background-color: var(--hover-bg);">
+                            <div class="hero-content">
+                                <span class="hero-badge">World-Class Careers</span>
+                                <h2>Campus Placement Week 2026.</h2>
+                                <p>Over 200+ global recruiters arriving this February. Ensure your profiles are updated
+                                    for the drive.</p>
+                                <button class="btn-gold">View Schedule</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-container">
+                    <!-- Quick Overview Row -->
+                    <div class="dashboard-grid reveal">
+                        <div class="panel stat-card col-3">
+                            <i class="fas fa-calendar-check"></i>
+                            <h3>88%</h3>
+                            <p>Attendance Portfolio</p>
+                        </div>
+                        <div class="panel stat-card col-3">
+                            <i class="fas fa-credit-card"></i>
+                            <h3>₹18,500</h3>
+                            <p>Remittance Due</p>
+                        </div>
+                        <div class="panel stat-card col-3">
+                            <i class="fas fa-clock"></i>
+                            <h3>10:30 AM</h3>
+                            <p>Active: Computer Networks</p>
+                        </div>
+                        <div class="panel stat-card col-3">
+                            <i class="fas fa-bell"></i>
+                            <h3>12</h3>
+                            <p>System Alerts</p>
+                        </div>
+                    </div>
+
+                    <!-- Main Layout Row -->
+                    <div class="dashboard-grid">
+
+                        <!-- Announcements Panel -->
+                        <div class="panel col-4 announcements-panel reveal">
+                            <div class="panel-header">
+                                <div class="panel-title"><i class="fas fa-bullhorn"></i> Institutional Briefs</div>
+                            </div>
+                            <div class="news-list">
+                                <div class="announcement-item">
+                                    <time>Feb 25, 2026</time>
+                                    <h5>End Term Lab Schedule Released</h5>
+                                    <p style="font-size: 0.75rem; color: var(--text-secondary);">Detailed time slots for
+                                        technical assessments available on module portal.</p>
+                                </div>
+                                <div class="announcement-item">
+                                    <time>Feb 22, 2026</time>
+                                    <h5>Minor Project Submission Extended</h5>
+                                    <p style="font-size: 0.75rem; color: var(--text-secondary);">The Academic Council
+                                        has granted a 7-day extension for documentation.</p>
+                                </div>
+                                <div class="announcement-item">
+                                    <time>Feb 18, 2026</time>
+                                    <h5>Executive Council Meeting</h5>
+                                    <p style="font-size: 0.75rem; color: var(--text-secondary);">Updates on new elective
+                                        tracks for the upcoming semester.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Assignments Column -->
+                        <div class="col-8 reveal" style="display: flex; flex-direction: column; gap: 30px;">
+
+                            <!-- Pending Assignments -->
+                            <div class="panel">
+                                <div class="panel-header">
+                                    <div class="panel-title"><i class="fas fa-tasks"></i> Project Deliverables</div>
+                                    <a href="#"
+                                        style="font-size: 0.7rem; color: var(--accent-gold); text-decoration: none; font-weight: 600; text-transform: uppercase;">Manage
+                                        All</a>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 15px;">
+                                    <div class="assignment-row">
+                                        <div>
+                                            <h5 style="margin-bottom: 2px;">Cloud Architecture Lab-4</h5>
+                                            <p style="font-size: 0.75rem; color: var(--text-secondary);">Deadline: 48h |
+                                                Prof. Alistair</p>
+                                        </div>
+                                        <span class="status-badge status-urgent">Urgent</span>
+                                    </div>
+                                    <div class="assignment-row">
+                                        <div>
+                                            <h5 style="margin-bottom: 2px;">Economics for Engineers</h5>
+                                            <p style="font-size: 0.75rem; color: var(--text-secondary);">Deadline: 5d |
+                                                Dr. Sullivan</p>
+                                        </div>
+                                        <span class="status-badge status-pending">In Progress</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Highlights & Actions -->
+                            <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 30px;">
+                                <div class="panel">
+                                    <div class="panel-header">
+                                        <div class="panel-title"><i class="fas fa-bolt"></i> Operations Console</div>
+                                    </div>
+                                    <div class="quick-list">
+                                        <button class="quick-btn">Pay Fees</button>
+                                        <button class="quick-btn">Academic Record</button>
+                                        <button class="quick-btn">Library Access</button>
+                                        <button class="quick-btn">Faculty Connect</button>
+                                    </div>
+                                </div>
+                                <div class="panel event-card"
+                                    style="display: flex; flex-direction: column; justify-content: center;">
+                                    <h4 style="margin-bottom: 8px;">Campus Life</h4>
+                                    <p style="font-size: 0.8rem; margin-bottom: 20px; color: var(--text-secondary);">
+                                        Annual Research Symposium 2026 begins this weekend.</p>
+                                    <button class="btn-gold">RSVP Portal</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recruitmet Highlights Section -->
+                    <div class="reveal" style="margin-top: 40px;">
+                        <h4
+                            style="text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.85rem; color: var(--accent-gold-soft); margin-bottom: 25px;">
+                            Elite Placement Statistics</h4>
+                        <div class="recruiter-grid">
+                            <div class="recruiter-card">
+
+                                <h5>52 Placements</h5>
+                                <p>Highest package 44 LPA</p>
+                            </div>
+                            <div class="recruiter-card">
+
+                                <h5>38 Placements</h5>
+                                <p>Average package 22 LPA</p>
+                            </div>
+                            <div class="recruiter-card">
+
+                                <h5>45 Placements</h5>
+                                <p>Internships + FTE roles</p>
+                            </div>
+                            <div class="recruiter-card">
+
+                                <h5>12 Placements</h5>
+                                <p>R&D and Design roles</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Placement Partners -->
+                    <div class="placement-banner reveal">
+                        <div class="ticker-track">
+
+
+
+
+
+
+
+                            <!-- Duplicate -->
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ACADEMICS SECTION -->
+            <div id="academics" class="page-section">
+                <div class="dashboard-container">
+
+                    <div class="academic-header reveal">
+                        <h2>Academic Portfolio</h2>
+                        <p>Track your courses, timetable, and learning resources.</p>
+                    </div>
+
+                    <!-- Enrolled Courses -->
+                    <div class="reveal">
+                        <h4
+                            style="text-transform: uppercase; letter-spacing: 0.2rem; font-size: 0.8rem; color: var(--accent-gold); margin-bottom: 25px;">
+                            Enrolled Courses</h4>
+                        <div class="course-grid" id="courseGrid">
+                            <!-- Course cards loaded via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Timetable & Attendance Row -->
+                    <div class="dashboard-grid">
+
+                        <!-- Timetable -->
+                        <div class="col-8 reveal">
+                            <div class="panel timetable-container">
+                                <div class="panel-header">
+                                    <div class="panel-title"><i class="fas fa-calendar-alt"></i> Weekly Schedule</div>
+                                </div>
+                                <div class="timetable-grid" id="timetableGrid">
+                                    <!-- Timetable columns loaded via JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Attendance Tracker -->
+                        <div class="col-4 reveal">
+                            <div class="panel attendance-panel" style="border-right: 3px solid var(--accent-gold);">
+                                <div class="panel-header">
+                                    <div class="panel-title"><i class="fas fa-percentage"></i> Attendance Tracking</div>
+                                </div>
+                                <div class="attendance-list" id="attendanceList">
+                                    <!-- Attendance bars loaded via JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Learning Resources -->
+                    <div class="reveal" style="margin-top: 40px;">
+                        <h4
+                            style="text-transform: uppercase; letter-spacing: 0.2rem; font-size: 0.8rem; color: var(--accent-gold); margin-bottom: 25px;">
+                            Academic Resources</h4>
+                        <div class="resource-grid" id="resourceGrid">
+                            <!-- Resources loaded via JS -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ASSIGNMENTS SECTION -->
+            <div id="assignments" class="page-section">
+                <div class="dashboard-container">
+
+                    <div class="assignment-header reveal">
+                        <h2>Personal Tasks & Assignments</h2>
+                        <p>Track your project deadlines and manage submissions.</p>
+                    </div>
+
+                    <div class="dashboard-grid">
+
+                        <!-- Main Assignment List -->
+                        <div class="col-8 reveal">
+                            <h4
+                                style="text-transform: uppercase; letter-spacing: 0.2rem; font-size: 0.8rem; color: var(--accent-gold); margin-bottom: 25px;">
+                                Open Assignments</h4>
+                            <div class="assignment-grid" id="assignmentGrid">
+                                <!-- Loaded via JS -->
+                            </div>
+                        </div>
+
+                        <!-- Sidebar / Recent Activity -->
+                        <div class="col-4 reveal">
+
+                            <div class="panel" style="margin-bottom: 30px;">
+                                <div class="panel-header">
+                                    <div class="panel-title"><i class="fas fa-history"></i> Recent Submissions</div>
+                                </div>
+                                <div class="activity-list" id="submissionStack">
+                                    <!-- Loaded via JS (Stack Concept) -->
+                                </div>
+                            </div>
+
+                            <div class="panel">
+                                <div class="panel-header">
+                                    <div class="panel-title"><i class="fas fa-info-circle"></i> Instructions</div>
+                                </div>
+                                <div
+                                    style="padding: 15px; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+                                    Please ensure all files are in PDF format. Late submissions will attract a 10%
+                                    penalty per day.
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- EXAMINATIONS SECTION -->
+            <div id="exams" class="page-section">
+                <div class="dashboard-container">
+
+                    <div class="exam-header reveal">
+                        <h2>Examination Portal</h2>
+                        <p>Access your exam schedule, results, and performance analysis.</p>
+                    </div>
+
+                    <div class="dashboard-grid">
+
+                        <!-- Exam Timeline/Schedule -->
+                        <div class="col-6 reveal">
+                            <h4
+                                style="text-transform: uppercase; letter-spacing: 0.2rem; font-size: 0.8rem; color: var(--accent-gold); margin-bottom: 25px;">
+                                Exam Schedule</h4>
+                            <div class="exam-timeline" id="examTimeline">
+                                <!-- Timeline items loaded via JS -->
+                            </div>
+                        </div>
+
+                        <!-- Results Section -->
+                        <div class="col-6 reveal">
+                            <h4
+                                style="text-transform: uppercase; letter-spacing: 0.2rem; font-size: 0.8rem; color: var(--accent-gold); margin-bottom: 25px;">
+                                Semester Results</h4>
+                            <div class="panel">
+                                <table class="results-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Subject</th>
+                                            <th>Marks</th>
+                                            <th>Grade</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="resultsTableBody">
+                                        <!-- Results loaded via JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Performance Summary Card -->
+                            <div class="performance-summary reveal" style="margin-top: 30px;">
+                                <div class="perf-item">
+                                    <span>Overall CGPA</span>
+                                    <h2 id="overallCgpa">--</h2>
+                                </div>
+                                <div class="perf-item">
+                                    <span>Total Credits</span>
+                                    <h2 id="totalCredits">--</h2>
+                                </div>
+                                <div class="perf-item"
+                                    style="border-left: 1px solid var(--border-color); padding-left: 20px;">
+                                    <span>Standing</span>
+                                    <h2 id="studentStanding">Elite</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- COMMUNICATION SECTION -->
+            <div id="communication" class="page-section">
+                <div class="dashboard-container">
+
+                    <div class="communication-header reveal">
+                        <h2>Futurense Connect</h2>
+                        <p>Secure role-based communication with Faculty and Administration.</p>
+                    </div>
+
+                    <div class="panel chat-container-v2 reveal"
+                        style="display: flex; height: 600px; padding: 0; overflow: hidden; background: var(--secondary-bg);">
+                        <!-- Contact List Sidebar -->
+                        <div class="chat-sidebar"
+                            style="width: 300px; border-right: 1px solid var(--border-color); display: flex; flex-direction: column;">
+                            <div style="padding: 20px; border-bottom: 1px solid var(--border-color);">
+                                <h5
+                                    style="color: var(--accent-gold); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.1em;">
+                                    Directory</h5>
+                            </div>
+                            <div id="contactList" style="flex: 1; overflow-y: auto;">
+                                <!-- Contact cards loaded via JS -->
+                            </div>
+                        </div>
+
+                        <!-- Chat Main Area -->
+                        <div class="chat-main"
+                            style="flex: 1; display: flex; flex-direction: column; background: var(--primary-bg);">
+                            <div id="activeChatHeader"
+                                style="padding: 15px 25px; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; min-height: 70px;">
+                                <div style="color: var(--text-secondary); font-size: 0.9rem;">
+                                    <i class="fas fa-comments" style="margin-right: 10px;"></i> Select a faculty member
+                                    to start chatting
+                                </div>
+                            </div>
+
+                            <div id="messageArea"
+                                style="flex: 1; overflow-y: auto; padding: 25px; display: flex; flex-direction: column; gap: 15px;">
+                                <div style="text-align: center; margin-top: 100px; opacity: 0.3;">
+                                    <i class="fas fa-shield-alt"
+                                        style="font-size: 3rem; margin-bottom: 15px; color: var(--accent-gold);"></i>
+                                    <p>End-to-end encrypted academic communication</p>
+                                </div>
+                            </div>
+
+                            <div class="chat-input-row"
+                                style="padding: 20px; border-top: 1px solid var(--border-color); display: flex; gap: 15px;">
+                                <input type="text" id="messageInput" placeholder="Type your message here..."
+                                    style="flex: 1; background: var(--secondary-bg); border: 1px solid var(--border-color); color: var(--text-primary); padding: 12px 20px; border-radius: 4px; outline: none;"
+                                    disabled>
+                                <button id="sendMessageBtn" class="btn-gold" style="padding: 0 25px;" disabled><i
+                                        class="fas fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="finance" class="page-section">
+                <div class="dashboard-container">
+                    <div class="panel" style="border-top: 3px solid var(--accent-gold);">
+                        <h2>Fiscal Management Portal</h2>
+                        <p style="color: var(--text-secondary); margin-top: 15px; font-size: 0.9rem;">Review
+                            comprehensive fee breakdowns, scholarship applications, and historical remittance records.
+                        </p>
+                        <button class="quick-btn" style="margin-top: 35px; width: 100%;"
+                            onclick="window.location.href='/dashboard.html'">Initiate Fee Remittance</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROFILE SECTION -->
+            <div id="profile" class="page-section">
+                <div class="dashboard-container">
+                    <div class="academic-header reveal">
+                        <h2>Personal Profile</h2>
+                        <p>Manage your account settings and basic information.</p>
+                    </div>
+
+                    <div class="col-6 reveal">
+                        <div class="panel" style="border-top: 3px solid var(--accent-gold);">
+                            <div class="panel-header">
+                                <div class="panel-title"><i class="fas fa-user-edit"></i> Edit Basic Information</div>
+                            </div>
+                            <div style="padding: 25px;">
+                                <form id="profileForm">
+                                    <div style="margin-bottom: 20px;">
+                                        <label
+                                            style="display: block; font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase;">Full
+                                            Name</label>
+                                        <input type="text" id="editName"
+                                            style="width: 100%; background: var(--secondary-bg); border: 1px solid var(--border-color); color: var(--text-primary); padding: 12px; border-radius: 4px; outline: none;"
+                                            value="John Doe">
+                                    </div>
+                                    <div style="margin-bottom: 25px;">
+                                        <label
+                                            style="display: block; font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase;">Email
+                                            Address</label>
+                                        <input type="email" id="editEmail"
+                                            style="width: 100%; background: var(--secondary-bg); border: 1px solid var(--border-color); color: var(--text-primary); padding: 12px; border-radius: 4px; outline: none;"
+                                            value="john@example.com">
+                                    </div>
+                                    <button type="submit" class="btn-gold" style="width: 100%;">Save Changes</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

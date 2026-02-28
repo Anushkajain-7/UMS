@@ -1,0 +1,23 @@
+{
+    "name": "ums-fee-system",
+    "version": "1.0.0",
+    "description": "Simplified University Management System Fee Payment System",
+    "author": "Anushkajain-7",
+    "main": "backend/server.js",
+    "scripts": {
+        "start": "node backend/server.js",
+        "dev": "nodemon backend/server.js"
+    },
+    "dependencies": {
+        "express": "^4.18.2",
+        "sqlite3": "^5.1.7",
+        "jsonwebtoken": "^9.0.2",
+        "bcryptjs": "^2.4.3",
+        "cors": "^2.8.5",
+        "qrcode": "^1.5.3",
+        "dotenv": "^16.4.5"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.0"
+    }
+}

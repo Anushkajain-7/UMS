@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUTURENSE UNIVERSITY - QR Payment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="background-color: #0B0B0B; color: #F5F5F5; font-family: 'Inter', sans-serif;">
+    <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 60px 20px;">
+        <div style="text-align: center; margin-bottom: 30px;">
+            
+        </div>
+        <div class="auth-container"
+            style="max-width: 500px; margin: 0 auto; background: #1A1A1A; border: 1px solid #2A2A2A; padding: 50px; text-align: center;">
+            <h1 style="font-family: 'Playfair Display', serif; margin-bottom: 40px; letter-spacing: 0.05em;">Digital
+                Payment</h1>
+            <div class="qr-container">
+                <div id="qrcode" style="background: white; padding: 20px; display: inline-block; margin-bottom: 30px;">
+                    <p style="color: #0B0B0B; font-size: 0.8rem;">Generating Secure QR...</p>
+                </div>
+                <div class="payment-details"
+                    style="margin-bottom: 40px; border-top: 1px solid #2A2A2A; padding-top: 30px;">
+                    <p style="font-size: 0.75rem; text-transform: uppercase; color: #CFCFCF; margin-bottom: 10px;">
+                        Amount to Remit</p>
+                    <h2 id="displayAmount"
+                        style="font-family: 'Inter', sans-serif; font-weight: 700; margin-bottom: 20px;">₹0</h2>
+                    <p style="font-size: 0.75rem; color: #CFCFCF;">Student Identity: <strong id="displayStudentId"
+                            style="color: #F5F5F5;">---</strong></p>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <button id="simulateSuccessBtn"
+                        style="background: #F5F5F5; color: #0B0B0B; border: none; padding: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer;">Finalize
+                        Transaction</button>
+                    <button class="secondary" onclick="window.location.href='/dashboard.html'"
+                        style="background: transparent; color: #CFCFCF; border: 1px solid #2A2A2A; padding: 12px; cursor: pointer; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.1em;">Return
+                        to Portal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const token = localStorage.getItem('token');
+        const studentId = localStorage.getItem('studentId');
+        const amount = localStorage.getItem('pendingPaymentAmount');
+
+        if (!token || !amount) window.location.href = '/dashboard.html';
+
+        document.getElementById('displayAmount').textContent = `₹${amount}`;
+        document.getElementById('displayStudentId').textContent = studentId;
+
+        let currentPaymentId = null;
+
+        async function generateQR() {
+            try {
+                const response = await fetch('/generate-qr', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ studentId, amount })
+                });
+                const data = await response.json();
+
+                if (response.ok) {
+                    currentPaymentId = data.paymentId;
+                    document.getElementById('qrcode').innerHTML = ``;
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        document.getElementById('simulateSuccessBtn').addEventListener('click', async () => {
+            if (!currentPaymentId) return alert('Payment not initialized');
+
+            try {
+                const response = await fetch('/confirm-payment', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ paymentId: currentPaymentId, studentId, amount })
+                });
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert('Payment Successful!');
+                    localStorage.removeItem('pendingPaymentAmount');
+                    window.location.href = '/dashboard.html';
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        });
+
+        generateQR();
+    </script>
+</body>
+
+</html>
